@@ -1,4 +1,4 @@
-function fottere(){
+function Footer(){
     return(
         <footer>
             <p>© 2023 City Lovers</p>
@@ -6,3 +6,4 @@ function fottere(){
     );
 }
 
+export default Footer;
