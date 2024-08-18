@@ -6,6 +6,7 @@ import Header from './components/Header'
 import UserProfile from './components/UserProfile'
 import MainContext from './components/MainContent'
 import Footer from './components/Footer'
+import Counter from './components/Counter'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,11 +22,14 @@ function App() {
         </a>
         <Header/>
         <UserProfile/>
-        <MainContext/>
-        <Footer/>
+        <MainContext/> 
+        
       </div>
-      
+      <div>
+        <Counter/>
+      </div>
       <div className="card">
+        
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
@@ -36,7 +40,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-
+      <Footer/>
     </>
   )
 }
