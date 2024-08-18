@@ -2,18 +2,18 @@ import { Link } from "react-router-dom";
 
 function Navbar(){
     return (
-        <nav>
+        <nav style={{backgroundColor: 'red', textAlign:'center', }}>
             <ul>
-                <li>
+                <li style={{color: 'blue', textAlign: 'center'}}>
                     <Link to= "/">Home</Link>
                 </li>
-                <li>
+                <li style={{color:'black'}}>
                     <Link to= '/About'>About</Link>
                 </li>
-                <li>
+                <li style={{color: 'pink'}}>
                     <Link to= '/Services'>Service</Link>
                 </li>
-                <li>
+                <li style = {{color:'brown'}}>
                     <Link to='/Contact'>Contact</Link>
                 </li>
             </ul>
