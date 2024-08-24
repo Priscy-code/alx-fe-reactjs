@@ -1,4 +1,4 @@
-import useRecipeStore from "./recipeStore"
+import useRecipeStore from "../components/recipeStore"
 
 
 const RecommendationList =() => {
@@ -18,3 +18,5 @@ const RecommendationList =() => {
         </div>
     )
 }
+
+export default RecommendationList
