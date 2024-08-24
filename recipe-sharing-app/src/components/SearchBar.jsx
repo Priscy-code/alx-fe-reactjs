@@ -2,20 +2,16 @@ import React, { useState } from "react";
 import useRecipeStore from "./recipeStore";
 
 const SearchBar = () => {
-    const [searchTerm, setSearchTerm] = useState('');
-    const filterRecipes = useRecipeStore(state => state.filterRecipes);
-
-    const handleSearch = (e) => {
-        const term = e.target.value;
-        setSearchTerm(term);
-        filterRecipes(term);
-    }
+    const [searchTerm, setSearchTerm] = useRecipeStore(
+        (state) => ({searchTerm: state.searchTerm, setSearchTerm: state.setSearchTerm})
+    )
+   
 
     return(
         <input type="text"
         placeholder="Search recipes..." 
         value={searchTerm}
-        onChange={handleSearch}/>
+        onChange={(e) => setSearchTerm(e.target.value)}/>
     );
 }
 
