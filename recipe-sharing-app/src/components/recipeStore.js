@@ -9,11 +9,12 @@ const useRecipeStore = create(set => ({
     removeFavorite: (recipedId) => set(state => ({
       favorites:state.favorites.filter(id => id !== recipedId)
     })), 
-    recommendation: [],
+    recommendations: [],
     generateRecommendation: () => set(state => {
       const recommended = state.recipes.filter(recipe => 
         state.favorites.includes(recipe.id) && Math.random() >0.5
       );
+      return {recommendations: recommended}
     }),
     searchTerm: '',
     setSearchTerm: (term) => set ({ searchTerm: term}),
