@@ -1,7 +1,15 @@
-import create from 'zustand'
+import {create} from 'zustand'
 
 const useRecipeStore = create(set => ({
     recipes:[],
+    searchTerm: '',
+    setSearchTerm: (term) => set ({ searchTerm: term}),
+    filteredRecipes: [],
+    filteredRecipes:() => set(state => ({
+      filteredRecipes: state.recipes.filter(recipe =>
+        recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
+      )
+    })),
     updateRecipe: (newRecipe) => set(state => ({
       recipes: [...state.receipes, newRecipe]
     })),

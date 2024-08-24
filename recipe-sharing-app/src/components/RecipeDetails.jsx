@@ -1,7 +1,7 @@
 import useRecipeStore from "../components/recipeStore.js";
 import DeleteRecipeButton from "./DeleteRecipeButton.jsx";
 import EditRecipeForm from "./EditRecipeForm.jsx";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 const RecipeDetails = ({recipeId}) => {
     const recipe = useRecipeStore (state =>
         state.recipes.find(recipe => recipe.id === recipeId));
@@ -12,7 +12,7 @@ return(
         <h1>{recipe.title}</h1>
         <p>{recipe.description}</p>
         <EditRecipeForm recipe={recipe}/>
-        <DeleteRecipeButton recipeId={recipeId}/>
+        <DeleteRecipeButton recipe={recipe}/>
 
     </div>
 )
