@@ -4,6 +4,7 @@ const RegistrationForm = () =>{
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
+    const [errors, setErrors] = useState({});
 
     const handleSubmit = (e) =>{
         e.preventDefault();
@@ -11,7 +12,15 @@ const RegistrationForm = () =>{
         let formError ={};
         if(!username) formError.username = "Username is required";
         if(!email) formError.email = "Email is required ";
-        if(!password) formError.password = "password is required "
+        if(!password) formError.password = "password is required ";
+
+        if (Object.keys(formError).length>0){
+            setErrors(formError);
+        }else{
+            setErrors({});
+
+            alert('form submitted successfully ')
+        }
     }
      return (
         <form onSubmit={handleSubmit}>
