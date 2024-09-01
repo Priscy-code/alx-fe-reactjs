@@ -9,9 +9,15 @@ const TodoList = () => {
     { id: 3, text: 'Master JavaScript', completed: false }
   ]);
 
+  const [newTodo, setNewtodo] = useState('');
+
   // Method to add a new todo
   const addTodo = (text) => {
-    setTodos([...todos, { id: Date.now(), text, completed: false }]);
+    if(newTodo.trim()){
+      setTodos([...todos, { id: Date.now(), text, completed: false }]);
+      setNewtodo('');
+    }
+    
   };
 
   // Method to toggle the completion status of a todo
