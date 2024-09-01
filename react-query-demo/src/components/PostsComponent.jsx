@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 
 function PostComponent(){
-    const {isLoading, error, data} = useQuery(['posts'], () => 
+    const {fetchPosts, iserror, data} = useQuery(['posts'], () => 
     fetch('https://jsonplaceholder.typicode.com/posts'). then((response) => {
         if(!response.ok) {
             throw new Error('Network response was not okay')
@@ -9,8 +9,8 @@ function PostComponent(){
         return response.json();
     }));
 
-    if(isLoading) return <div>Loading</div>;
-    if (error) return <div>An error ocurred:{error.message}</div>;
+    if(fetchPosts) return <div>Loading</div>;
+    if (iserror) return <div>An error ocurred:{iserror.message}</div>;
 
     return(
         <div>
