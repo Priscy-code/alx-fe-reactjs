@@ -11,8 +11,8 @@ const RegistrationForm = () =>{
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        if ( !username) {
-            errors.username (`Username must be at least 12 character long.`); 
+        if (!username) {
+            errors.username ("Username must be at least 12 character long."); 
             return;
         };
         if (!email) {
