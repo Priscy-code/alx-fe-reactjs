@@ -11,35 +11,35 @@ const RegistrationForm = () =>{
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-
-       
-        if( !username) {
+        if ( !username) {
             errors.username (`Username must be at least 12 character long.`); 
             return;
         };
-        if(!email) {
+        if (!email) {
             errors.email ("invalid email ");
             return
             };
-        if(!password) {
+        if (!password) {
             errors.password ("password must be at least 8 characters"); 
             return;
         };
 
+        setErrors(formError)
+        resetForm();
 
         console.log('Username: ', username);
         console.log('Email:', email);
-        console.log('Password: ', password)
+        console.log('Password: ', password);
 
-
-
-        if (Object.keys(formError).length>0){
-            setErrors(formError);
-        }else{
-            setErrors({});
-
-            alert('form submitted successfully ')
+        const resetForm = () => {
+            setUsername('');
+            setEmail ('');
+            setPassword('');
         }
+
+
+
+    
     }
      return (
         <form onSubmit={handleSubmit}>
