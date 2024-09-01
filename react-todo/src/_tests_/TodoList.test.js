@@ -1,44 +1,34 @@
-import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
-import TodoList from '../components/TodoList.';
+import { render, screen, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom'; // Use the main import path
+import TodoList from '../components/TodoList';
 
+test('renders TodoList component with initial todos', () => {
+  render(<TodoList />);
+  expect(screen.getByText('Learn React in depth')).toBeInTheDocument();
+  expect(screen.getByText('Learn javaScript in depth')).toBeInTheDocument();
+});
 
-describes('Todolist component', () => {
-    test('renders without creashing', () => {
-      render(<TodoList/>);
+test('adds a new todo', () => {
+  render(<TodoList />);
+  fireEvent.change(screen.getByPlaceholderText('Add a new todo'), { target: { value: 'New Todo' } });
+  fireEvent.click(screen.getByText('Add Todo'));
+  expect(screen.getByText('New Todo')).toBeInTheDocument();
+});
 
-      expect(screen.getByText('Todo List')).toBeInTheDocument();
-    });
+test('toggles a todo item', () => {
+  render(<TodoList />);
+  const todo = screen.getByText('Learn React in depth');
+  // Toggle to completed
+  fireEvent.click(todo); 
+  expect(todo).toHaveStyle('text-decoration: none');
+    // Toggle back to not completed
+  fireEvent.click(todo);
+  expect(todo).toHaveStyle('text-decoration: line-through');
+});
 
-    test('display initial demo todos', () => {
-        render(<TodoList/>);
-
-        expect(screen.getByText('Buy groceries')).toBeInTheDocument();
-        expect(screen.getByText('Walk the dog')).toBeInTheDocument();
-        expect(scren.getByText('Read a book')).toBeInTheDocument();
-    });
-
-
-    test('allows a new todo to be added', () => {
-        render(<TodoList/>);
-
-        const input = screen.getByPlaceholderText("Add a new todo");
-        const button = screen.getByText('Add Todo');
-
-        fireEvent.change(input,{target: {value: 'New Todo'}});
-        fireEvent.click(button);
-
-        expect(screen.getByText('New Todo')).toBeInTheDocument();
-    });
-
-    const todoItem = screen.getByText('Buy groceries');
-
-    fireEvent.click(todoItem);
-
-    expect(todoItem).toHaveClass ('completed');
-
-    fireEvent.click(todoItem);
-    expect(todoItem).not.toHaveClass('completed')
-    
-})
+test('deletes a todo item', () => {
+  render(<TodoList />);
+  const deleteButton = screen.getAllByText('Delete')[0];
+  fireEvent.click(deleteButton);
+  expect(screen.queryByText('Learn React in depth')).not.toBeInTheDocument();
+});
