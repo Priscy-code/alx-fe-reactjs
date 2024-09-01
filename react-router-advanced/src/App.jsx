@@ -25,7 +25,7 @@ function App() {
        <Routes>
           <Route path = "/login" element = {<Login />}/>
           <Route element = {<ProtectRoute/>}/>
-          <Route path='/' element = {<Profile />}/>
+          <Route path='/profile' element = {<Profile />}/>
           <Route path='details' element = {<ProfileDetails />}/>
           <Route path='settings' element ={<ProfileSettings />}/>
 
