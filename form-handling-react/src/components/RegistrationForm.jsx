@@ -11,11 +11,17 @@ const RegistrationForm = () =>{
 
         let formError ={};
         if( !username) {
-            errors.username = "Username is required"};
+            errors.username = ("Username is required"); return};
         if(!email) {
-            errors.email = "Email is required "};
+            errors.email = ("Email is required "); return};
         if(!password) {
-            formError.password = "password is required "};
+            errors.password = ("password is required "); return};
+
+
+        console.log('Username: ', username);
+        console.log('Email:', email);
+        console.log('Password: ', password)
+
 
 
         if (Object.keys(formError).length>0){
