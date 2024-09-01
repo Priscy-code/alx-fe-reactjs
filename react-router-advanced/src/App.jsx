@@ -29,7 +29,7 @@ function App() {
           <Route path='details' element = {<ProfileDetails />}/>
           <Route path='settings' element ={<ProfileSettings />}/>
 
-          <Route path='/blog/:postId' element = {<BlogPost />}></Route>
+          <Route path='/blog/:id' element = {<BlogPost />}></Route>
        </Routes>
 
      </Router>
