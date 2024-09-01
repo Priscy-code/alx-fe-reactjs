@@ -6,16 +6,25 @@ const RegistrationForm = () =>{
     const [email, setEmail] = useState('');
     const [errors, setErrors] = useState({});
 
+
+     const formError ={}; 
+
     const handleSubmit = (e) =>{
         e.preventDefault();
 
-        let formError ={};
+       
         if( !username) {
-            errors.username ("Username is required"); return};
+            errors.username (`Username must be at least 12 character long.`); 
+            return;
+        };
         if(!email) {
-            errors.email ("Email is required "); return};
+            errors.email ("invalid email ");
+            return
+            };
         if(!password) {
-            errors.password ("password is required "); return};
+            errors.password ("password must be at least 8 characters"); 
+            return;
+        };
 
 
         console.log('Username: ', username);
