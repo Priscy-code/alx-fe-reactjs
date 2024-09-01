@@ -10,9 +10,9 @@ const RegistrationForm = () =>{
         e.preventDefault();
 
         let formError ={};
-        if(!username) formError.username = "Username is required";
-        if(!email) formError.email = "Email is required ";
-        if(!password) formError.password = "password is required ";
+        if(!username) {formError.username = "Username is required"};
+        if(!email) {formError.email = "Email is required "};
+        if(!password) {formError.password = "password is required "};
 
         if (Object.keys(formError).length>0){
             setErrors(formError);
