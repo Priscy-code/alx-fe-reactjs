@@ -4,6 +4,7 @@ const AddRecipeForm = () => {
     const [title,setTitle] =useState('');
     const [ingredients, setIngredients] = useState('');
     const [steps, setSteps] = useState('');
+    const [errors, setErrors] = useState({})
 
     const validateForm =() => {
         const newErrors ={};
@@ -45,6 +46,7 @@ const AddRecipeForm = () => {
         setTitle('');
         setIngredients('');
         setSteps('');
+        setErrors({});
     };
 
     return (
@@ -58,20 +60,24 @@ const AddRecipeForm = () => {
                      id="title"
                      value={title}
                      onChange={(e) => setTitle(e.target.value)}
-                     className="shadow apperance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                     className={`shadow apperance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.title ? 'border-red-500': ''}`}
                      placeholder="Enter recipe title"
                      required/>
+                     {errors.title && <p className="text-red-500 text-xs mt-2">{errors.title}</p>}
+       
 
                 </div>
                 <div>
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="steps">Preparation Steps</label>
-                    <textarea id="steps"
+                    <textarea id="ingredients"
                     value = {steps}
                     onChange={(e) => setSteps(e.target.value)}
-                    className="shadow apperance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    className={`shadow apperance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.ingredients? 'border-re-500' : ''}`}
                     placeholder ="Enter ingredient (seperated by commas )"
                     rows="4"
                     required/>
+                    {errors.ingredients && <p className="text-red-500 text-xs mt-2">{errors.ingredients}</p>}
+        
                 </div>
 
                 <div className="mb-4">
@@ -82,10 +88,12 @@ const AddRecipeForm = () => {
                      id="steps"
                       value={steps}
                       onChange={(e) => setSteps(e.target.value)}
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      className={`shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline ${errors.steps ? 'border-red-500' :''}`}
                       placeholder="Enter preparation steps"
                       rows="6"
                       required />
+                       {errors.steps && <p className="text-red-500 text-xs mt-2">{errors.steps}</p>}
+        
                 </div>
                 <button
                 type="submit" 
