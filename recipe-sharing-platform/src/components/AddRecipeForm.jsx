@@ -50,9 +50,9 @@ const AddRecipeForm = () => {
     };
 
     return (
-        <div className="max-w-2xl mx-auto px-4 py-6">
-            <h1 className="text-2xl font-bold mb-6">Add New Recipe</h1>
-            <form onSubmit={handleSubmit} className="bg-white shadow-lg rounded-lg p-6">
+        <div className="max-w-2xl mx-auto px-4 py-6 md:px-8 md:py-10">
+            <h1 className="text-2xl font-bold mb-6 md:text-3xl">Add New Recipe</h1>
+            <form onSubmit={handleSubmit} className="bg-white shadow-lg rounded-lg p-6 md:p-8">
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">Recipe Title</label>
                     <input
