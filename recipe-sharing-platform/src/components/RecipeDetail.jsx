@@ -31,15 +31,35 @@ const RecipeDetail = () => {
 </div>
     return(
     <div className="max-w-4xl mx-auto px-4 py-6">
-            <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-                <img src={recipes.image} alt={recipes.title} className="w-full h-64 object-cover"/>
-                <div className="p-6">
-                    <h1 className="text-3xl font-bold mb-4">{recipes.title}</h1>
-                    <p className="text-gray-700 text-lg">{recipes.summary}</p>
+        <div className="bg-white hadow-lg rounded-lg overflow-hidden">
+          <h1>{recipe.title}</h1>
+          <img src={recipe.image} alt={recipe.title} className="w-full h-64 object-cover" />
+          <h2 className="text-3xl font-bold mb-4">Ingredients</h2>
+      <ul>
+        {recipe.ingredients.map((ingredient, index) => (
+          <li key={index}>{ingredient}</li>
+         ))}
+      </ul>
+          <h2 className="text-3xl font-bold mb-4">Instructions</h2>
+          <p className="text-gray-700 text-lg">{recipe.instructions}</p>
+    </div>
+    </div>
 
-                </div>
-            </div>
-        </div>
+
+
+
+
+
+    // <div className="max-w-4xl mx-auto px-4 py-6">
+    //         <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+    //             <img src={recipes.image} alt={recipes.title} className="w-full h-64 object-cover"/>
+    //             <div className="p-6">
+    //                 <h1 className="text-3xl font-bold mb-4">{recipes.title}</h1>
+    //                 <p className="text-gray-700 text-lg">{recipes.summary}</p>
+
+    //             </div>
+    //         </div>
+    //     </div>
 
     )
 }
