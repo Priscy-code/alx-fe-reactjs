@@ -1,6 +1,6 @@
 import axios, { Axios } from "axios"
 
-const fetchUserData = async({username, location , miniRepos}) => {
+const fetchUserData = async({username, location , minRepos}) => {
     let query ='';
     if (username ){
         query += `${username} in:login`
@@ -10,7 +10,7 @@ const fetchUserData = async({username, location , miniRepos}) => {
         query += `location: ${location}`
     }
     if (repository) {
-        query += `respos:>= ${miniRepos}`
+        query += `respos:>= ${minRepos}`
     }
     if (!query){
         throw new ErrorEvent('At least one search criterion must be provided.')
