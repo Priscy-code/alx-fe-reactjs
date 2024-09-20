@@ -4,7 +4,7 @@ import fetchUserData from '../services/githubService';
 
 const Search = () => {
     const [username, setUsername] = useState('');
-    const [userData, setUserData] = useState(null);
+    const [userData, setUserData] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [location, setLocation] = useState('');
@@ -36,7 +36,7 @@ const Search = () => {
             setUserData(data.iteams);
             setTotalCount(data.totalCount);
         }catch(error){
-            setError("Looks like we cant find the user.")
+            setError("Looks like we cant find the user.", error)
         }finally{
             setLoading(false);
         }
@@ -78,7 +78,7 @@ const Search = () => {
              <input type="text"
              value={repository}
              onChange={handleRepository} 
-             placeholder='Enter repository title '
+             placeholder='Enter Minrepos '
              className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focud:shadow-outline'/>
 
              {/* <div className='flex item-center justify-between'>
