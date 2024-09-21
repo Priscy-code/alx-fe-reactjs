@@ -81,11 +81,11 @@ const Search = () => {
              placeholder='Enter Minrepos '
              className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focud:shadow-outline'/>
 
-             {/* <div className='flex item-center justify-between'>
+             <div className='flex item-center justify-between'>
                 <button type='submit'
                 className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline focus:shadow-outline'>
                     Search</button>
-             </div> */}
+             </div>
         </form>
 
         {loading && <p className='text-center text-gray-500'>Loading..</p>}
@@ -110,9 +110,9 @@ const Search = () => {
         </div>
         {userData.length > 0 && userData.length < totalCount && (
             <div className='flex jutify-center mt-4'>
-                <button onClick={loadMore}
+                {/* <button onClick={loadMore}
                  className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline focus:shadow-outline'>
-                    Search</button>
+                    Search</button> */}
             </div>
         )}
     </div>
